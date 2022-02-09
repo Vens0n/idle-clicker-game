@@ -1,0 +1,31 @@
+body {
+  background-color: #9977ff;
+}
+
+#topbar {
+  width: 100%;
+  overflow: hidden;
+}
+
+#money_prev {
+  width: 100%;
+  font-size: 100px;
+  background-color: #ffffff;
+  heigth: 25%;
+  text-align: center;
+  border: none;
+  overflow: hidden;
+  float: top;
+}
+
+#clickme {
+  width: 100%;
+  background: green;
+  font-size: 20px;
+  heigth: 5%;
+  text-align: center;
+  border: none;
+  overflow: hidden;
+  float: top;
+  user-select: none;
+}
