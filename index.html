@@ -2,7 +2,31 @@
 
 <head>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script>
+    var money = 0;
+    var autoclick = false;
+    var asmoney = 0;
+    document.getElementById("clickme").onclick = doclick();
+
+    function doclick() {
+      money++;
+      document.getElementById("money").innerHTML = money + "$";
+    }
+
+    function upgrade1() {
+      if (money >= 25) {
+        console.log("yesss")
+      }
+    }
+    var interval = setInterval(function() {
+          if (autoclick) {
+            money = money + asmoney;
+            document.getElementById("money").innerHTML = money + "$";
+          }
+        }
+      },
+      1000);
+  </script>
   <title>Page Title</title>
 </head>
 
@@ -14,6 +38,22 @@
     </div><br>
 
   </div>
+
+  <div class="row">
+    <div class="column" onclick="upgrade1()" style="background-color:#aaa;">
+      <h2>25$</h2>
+      <p>2$/Click</p>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+      <h2>100$</h2>
+      <p>10$/Click</p>
+    </div>
+    <div class="column" style="background-color:#ccc;">
+      <h2>1,000$</h2>
+      <p>10$/Second</p>
+    </div>
+  </div>
+
 </body>
 
 </html>
