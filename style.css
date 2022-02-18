@@ -1,5 +1,5 @@
 body {
-  background-color: #9977ff;
+  background-color: #0f0f0f;
 }
 
 #topbar {
@@ -10,7 +10,7 @@ body {
 #money_prev {
   width: 100%;
   font-size: 100px;
-  background-color: #ffffff;
+  background-color: #4f52a1;
   heigth: 25%;
   text-align: center;
   border: none;
@@ -20,7 +20,7 @@ body {
 
 #clickme {
   width: 100%;
-  background: green;
+  background: #1e8a3f;
   font-size: 20px;
   heigth: 5%;
   text-align: center;
@@ -28,6 +28,7 @@ body {
   overflow: hidden;
   float: top;
   user-select: none;
+  cursor: pointer;
 }
 
 * {
@@ -39,11 +40,53 @@ body {
   float: left;
   width: 33.33%;
   padding: 10px;
+  text-align: center;
 }
 
+.columna {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  text-align: center;
+  background-color: #3333aa;
+}
+
+.columnb {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  text-align: center;
+  background-color: #3333bb;
+}
+
+.columnc {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  text-align: center;
+  background-color: #3333cc;
+}
+  
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
+}
+
+#progressbar {
+  background-color: #4f52a1;
+  /* (height of inner div) / 2 + padding */
+}
+
+#progressbar>div {
+  background-color: #1e8a3f;
+  width: 40%;
+  text-align: center;
+  color: white;
+  height: 4%
+}
+
+#b {
+  
 }
