@@ -1,3 +1,5 @@
+alert("The game has moved to a new website.\nhttps://shawn-does.github.io/idle-clicker-game/")
+
 var data
 var showpres = false;
 var clickswithoutbutton = 0;
@@ -32,6 +34,7 @@ function load() {
 	if (!data.clickswithoutbutton) data.clickswithoutbutton = 0;
 	if (!data.autobuy) data.autobuy = false;
 	if (!data.startmoney) data.startmoney = 0;
+	if (!data.sps) data.sps = 0;
 	if (!data.autobuyon) data.autobuyon = false;
 		document.getElementById("stats").style.display = "none";
 
@@ -43,8 +46,9 @@ function load() {
     	document.getElementById("clickdam").innerHTML = abbrNum(((data.clickdam * data.boost) * data.clickbonus).toFixed(2), 2);
     	document.getElementById("autoclickdam").innerHTML = abbrNum(((data.autoclickdam * data.autobonus) * data.boost).toFixed(2), 2) + " / Second";
 		data.money = data.money + ((data.autoclickdam * data.autobonus) * data.boost) / 99;
-		if (showpres) {
-			document.getElementById("money").innerHTML = data.prespoints + " Skill Points";
+    data.prespoints = data.prespoints + (data.sps / 3600000)
+    if (showpres) {
+			document.getElementById("money").innerHTML = abbrNumNoMon(data.prespoints.toFixed(0), 2) + " Skill Points";
 		} else {
 			document.getElementById("money").innerHTML = abbrNum(data.money.toFixed(2), 2);
 		}
@@ -251,6 +255,26 @@ function skill8() {
 		data.skills.push("8")
 		data.points = data.points + (5 / (data.boost));
 
+	}
+}
+
+function skill9() {
+	if (data.prespoints >= 11 && data.skills[7]) {
+		document.getElementById("sk9").remove()
+		data.prespoints = data.prespoints - 11;
+		data.sps = 1;
+		data.skills.push("9")
+		data.points = data.points + (5 / (data.boost));
+	}
+}
+
+function skill10() {
+	if (data.prespoints >= 20 && data.skills[8]) {
+		document.getElementById("sk10").remove()
+		data.prespoints = data.prespoints - 20;
+		data.sps = 3;
+		data.skills.push("10")
+		data.points = data.points + (5 / (data.boost));
 	}
 }
 
