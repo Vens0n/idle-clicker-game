@@ -1,0 +1,311 @@
+
+<html>
+   <head>
+      <link rel="stylesheet" href="style.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="script.js"></script>
+      <title>Shawn Does</title>
+      <link rel="icon" href="./icon.png">
+   </head>
+   <body onload="load()">
+      <div id="topbar">
+         <button onclick="presmenu()">Prestige Menu</button>
+         <button onclick="showstats()">Statistics</button>
+         <div id="progressbar">
+            <div id="points" onclick="pristige()"></div>
+         </div>
+         <div id="progressbar">
+         </div>
+         <div id="money_prev">
+            <a id="money"></a><br>
+            <div id="clickme" onclick="doclick()">click</div>
+         </div>
+         <br>
+      </div>
+      <div class="row" id="shop">
+         <div class="columnb" onclick="upgrade1()" id="up1">
+            <!-- B -->
+            <h2>25$</h2>
+            <p>2$/Click</p>
+         </div>
+         <div class="columnc" onclick="upgrade2()" id="up2">
+            <!-- C -->
+            <h2>100$</h2>
+            <p>10$/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade3()" id="up3">
+            <!-- B -->
+            <h2>1K</h2>
+            <p>10$/Second</p>
+         </div>
+         <div class="columna" onclick="upgrade4()" id="up4">
+            <!-- A -->
+            <h2>1.5K</h2>
+            <p>50$/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade5()" id="up5">
+            <!-- B -->
+            <h2>3K</h2>
+            <p>30$/Second</p>
+         </div>
+         <div class="columnc" onclick="upgrade6()" id="up6">
+            <!-- C -->
+            <h2>10K</h2>
+            <p>150$/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade7()" id="up7">
+            <!-- B -->
+            <h2>15K</h2>
+            <p>100$/Second</p>
+         </div>
+         <div class="columna" onclick="upgrade8()" id="up8">
+            <!-- A -->
+            <h2>25K</h2>
+            <p>450$/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade9()" id="up9">
+            <!-- B -->
+            <h2>100K</h2>
+            <p>200$/Second</p>
+         </div>
+         <div class="columnc" onclick="upgrade10()" id="up10">
+            <!-- C -->
+            <h2>500K</h2>
+            <p>500$/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade11()" id="up11">
+            <!-- B -->
+            <h2>600K</h2>
+            <p>250$/Second</p>
+         </div>
+         <div class="columna" onclick="upgrade12()" id="up12">
+            <!-- A -->
+            <h2>1M</h2>
+            <p>700$/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade13()" id="up13">
+            <!-- B -->
+            <h2>1.3M</h2>
+            <p>1K/Click</p>
+         </div>
+         <div class="columnc" onclick="upgrade14()" id="up14">
+            <!-- C -->
+            <h2>1.5M</h2>
+            <p>500$/Second</p>
+         </div>
+         <div class="columnb" onclick="upgrade15()" id="up15">
+            <!-- B -->
+            <h2>1.75M</h2>
+            <p>1.5K/Click</p>
+         </div>
+         <div class="columna" onclick="upgrade16()" id="up16">
+            <!-- A -->
+            <h2>2M</h2>
+            <p>2K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade17()" id="up17">
+            <!-- B -->
+            <h2>3M</h2>
+            <p>800$/Second</p>
+         </div>
+         <div class="columnc" onclick="upgrade18()" id="up18">
+            <!-- C -->
+            <h2>7M</h2>
+            <p>2.5K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade19()" id="up19">
+            <!-- B -->
+            <h2>15M</h2>
+            <p>3K/Click</p>
+         </div>
+         <div class="columna" onclick="upgrade20()" id="up20">
+            <!-- A -->
+            <h2>17M</h2>
+            <p>2K/Second</p>
+         </div>
+         <div class="columnb" onclick="upgrade21()" id="up21">
+            <!-- B -->
+            <h2>30M</h2>
+            <p>5K/Click</p>
+         </div>
+         <div class="columnc" onclick="upgrade22()" id="up22">
+            <!-- C -->
+            <h2>70M</h2>
+            <p>7K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade23()" id="up23">
+            <!-- B -->
+            <h2>100M</h2>
+            <p>5K/Second</p>
+         </div>
+         <div class="columna" onclick="upgrade24()" id="up24">
+            <!-- A -->
+            <h2>200M</h2>
+            <p>12K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade25()" id="up25">
+            <!-- B -->
+            <h2>350M</h2>
+            <p>8K/Second</p>
+         </div>
+         <div class="columnc" onclick="upgrade26()" id="up26">
+            <!-- C -->
+            <h2>500M</h2>
+            <p>17K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade27()" id="up27">
+            <!-- B -->
+            <h2>600M</h2>
+            <p>13K/Second</p>
+         </div>
+         <div class="columna" onclick="upgrade28()" id="up28">
+            <!-- A -->
+            <h2>999M</h2>
+            <p>25K/Second</p>
+         </div>
+         <div class="columnb" onclick="upgrade29()" id="up29">
+            <!-- B -->
+            <h2>1.5B</h2>
+            <p>30K/Click</p>
+         </div>
+         <div class="columnc" onclick="upgrade30()" id="up30">
+            <!-- C -->
+            <h2>3B</h2>
+            <p>40K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade31()" id="up31">
+            <!-- B -->
+            <h2>5B</h2>
+            <p>40K/Second</p>
+         </div>
+         <div class="columna" onclick="upgrade32()" id="up32">
+            <!-- A -->
+            <h2>11.11B</h2>
+            <p>70K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade33()" id="up33">
+            <!-- B -->
+            <h2>17B</h2>
+            <p>120K/Click</p>
+         </div>
+         <div class="columnc" onclick="upgrade34()" id="up34">
+            <!-- C -->
+            <h2>25B</h2>
+            <p>140K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade35()" id="up35">
+            <!-- B -->
+            <h2>50B</h2>
+            <p>100K/Second</p>
+         </div>
+         <div class="columna" onclick="upgrade36()" id="up36">
+            <!-- A -->
+            <h2>66.6B</h2>
+            <p>110K/Second</p>
+         </div>
+         <div class="columnb" onclick="upgrade37()" id="up37">
+            <!-- B -->
+            <h2>75B</h2>
+            <p>120K/Second</p>
+         </div>
+         <div class="columnc" onclick="upgrade38()" id="up38">
+            <!-- C -->
+            <h2>100B</h2>
+            <p>200K/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade39()" id="up39">
+            <!-- B -->
+            <h2>130B</h2>
+            <p>300K/Click</p>
+         </div>
+         <div class="columna" onclick="upgrade40()" id="up40">
+            <!-- A -->
+            <h2>150B</h2>
+            <p>400/Click</p>
+         </div>
+         <div class="columnb" onclick="upgrade41()" id="up41">
+            <!-- B -->
+            <h2>200B</h2>
+            <p>600K/Second</p>
+         </div>
+      </div>
+      <div class="row2" id="presmenu">
+         <div class="column" onclick="skill1()" id="sk1" style="background-color:#aa0000;color:black;">
+            <h2>2 Skill Points</h2>
+            <p>2x Auto Clicker</p>
+         </div>
+         <div class="column" onclick="skill2()" id="sk2" style="background-color:#bb0000;color:black;">
+            <h2>5 Skill Points</h2>
+            <p>2x Click Damage</p>
+         </div>
+         <div class="column" onclick="skill3()" id="sk3" style="background-color:#cc0000;color:black;">
+            <h2>7 Skill Points</h2>
+            <p>Start With 1K</p>
+         </div>
+         <div class="column" onclick="skill4()" id="sk4" style="background-color:#bb0000;color:black;">
+            <h2>10 Skill Points</h2>
+            <p>Auto Buy Upgrades</p>
+         </div>
+         <div class="column" onclick="skill9()" id="sk9" style="background-color:#aa0000;color:black;">
+            <h2>11 Skill Points</h2>
+            <p>1 Skill Point/Hour</p>
+         </div>
+         <div class="column" onclick="skill5()" id="sk5" style="background-color:#bb0000;color:black;">
+            <h2>12 Skill Points</h2>
+            <p>4x Click Damage</p>
+         </div>
+         <div class="column" onclick="skill6()" id="sk6" style="background-color:#cc0000;color:black;">
+            <h2>14 Skill Points</h2>
+            <p>10x Auto Clicker</p>
+         </div>
+         <div class="column" onclick="skill7()" id="sk7" style="background-color:#bb0000;color:black;">
+            <h2>15 Skill Points</h2>
+            <p>12x Click Damage</p>
+         </div>
+         <div class="column" onclick="skill8()" id="sk8" style="background-color:#cc0000;color:black;">
+            <h2>17 Skill Points</h2>
+            <p>Start With 10M</p>
+         </div>
+         <div class="column" onclick="skill10()" id="sk10" style="background-color:#cc0000;color:black;">
+            <h2>20 Skill Points</h2>
+            <p>3 Skill Point/Hour</p>
+         </div>
+      </div>
+      <div class="row3" id="stats">
+         <div class="column" onclick="toggleab()" style="background-color:#00aa00;color:black;">
+            <h2>Toggle Auto Buy</h2>
+            <p id="tab">Not Purchased</p>
+         </div>
+         <div class="column" onclick="alert('0.9.0 -- Upgrades\n0.8.0 -- Color Sceme change again lmalma\n0.7.6 -- More upgrades again\n0.7.5 -- Added Statistics Tab\n0.7.4 -- Boosts from prestiges effect autoclicker\n0.7.3 -- No more boosts, there gone.\n0.7.2 -- Even more upgrades\n0.7.1 -- More upgrades\n0.7.0 -- You now must buy upgrades in order, fixed autostart money\n0.6.5 -- More upgrades\n0.6.4 -- New darker blue color sceme\n0.6.3 -- Added update log\n0.6.2 -- Boost bar takes longer to get harder')" style="background-color:#00bb00;color:black;">
+            <h2>Version</h2>
+            <p>0.9.0</p>
+         </div>
+         <div class="column" style="background-color:#00cc00;color:black;">
+            <h2>Clicks With Out Buttons</h2>
+            <p id="idfk">Prob 0, the game broke</p>
+         </div>
+         <div class="column" style="background-color:#00bb00;color:black;">
+            <h2>Prestige Bonus</h2>
+            <p id="presbonus">The game is broken, not my problem</p>
+         </div>
+         <div class="column" style="background-color:#00aa00;color:black;">
+            <h2>Click Damage</h2>
+            <p id="clickdam">The game is broken, not my problem</p>
+         </div>
+         <div class="column" style="background-color:#00bb00;color:black;">
+            <h2>Money Per Second</h2>
+            <p id="autoclickdam">The game is broken, not my problem</p>
+         </div>
+         <div class="column" onclick="alert(localStorage.getItem(`info`))" style="background-color:#00cc00;color:black;">
+            <h2>Full Debug</h2>
+            <p id="autoclickdam">View all save data</p>
+         </div>
+         <div class="column" onclick="reset()" style="background-color:#00bb00;color:black;">
+            <h2>Reset</h2>
+            <p>reset le' game</p>
+         </div>
+      </div>
+      </div>
+   </body>
+</html>
+<!-- The code, what else do you want? -->
