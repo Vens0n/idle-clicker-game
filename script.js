@@ -46,7 +46,7 @@ function load() {
 		data.money = data.money + ((data.autoclickdam * data.autobonus) * data.boost) / 99;
     data.prespoints = data.prespoints + (data.sps / 3600000)
     if (showpres) {
-			document.getElementById("money").innerHTML = abbrNumNoMon(data.prespoints.toFixed(0), 2) + " Skill Points";
+			document.getElementById("money").innerHTML = abbrNumNoMon(data.prespoints.toFixed(), 2) + " Skill Points";
 		} else {
 			document.getElementById("money").innerHTML = abbrNum(data.money.toFixed(2), 2);
 		}
@@ -122,13 +122,8 @@ function presmenu() {
 function pristige() {
 	if (data.points >= 100) {
 		localStorage.setItem("info", JSON.stringify(data = {
-			"money": 0,
-			"clickdam": 1,
-			"autoclickdam": 0,
-			"boost": data.boost + 0.1,
-			"upgrade": [],
-			"points": 0,
 			"prespoints": data.prespoints + 1,
+			"boost": data.boost + 0.1,
 			"autobonus": data.autobonus,
 			"autoclickstart": data.autoclickstart,
 			"clickbonus": data.clickbonus,
@@ -137,23 +132,15 @@ function pristige() {
       "startmoney": data.startmoney,
       "autobuy": data.autobuy,
       "autobuyon": data.autobuyon,
-      "clickswithoutbutton": data.clickswithoutbutton
+      "clickswithoutbutton": data.clickswithoutbutton,
+      "sps": data.sps
 		}));
 		location.reload();
-		preswarn = true;
   }
 }
 
 function reset() {
-	localStorage.setItem("info", JSON.stringify(data = {
-		"money": 0,
-		"clickdam": 1,
-		"autoclickdam": 0,
-		"boost": 1,
-		"upgrade": [],
-		"points": 0,
-		"prespoints": 0
-	}));
+	localStorage.setItem("info", JSON.stringify(data = {}));
 	location.reload();
 }
 
