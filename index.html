@@ -245,21 +245,29 @@
             <h2>10 Skill Points</h2>
             <p>Auto Buy Upgrades</p>
          </div>
-         <div class="column" onclick="skill5()" id="sk5" style="background-color:#aa0000;color:black;">
+         <div class="column" onclick="skill9()" id="sk9" style="background-color:#aa0000;color:black;">
+            <h2>11 Skill Points</h2>
+            <p>1 Skill Point/Hour</p>
+         </div>
+         <div class="column" onclick="skill5()" id="sk5" style="background-color:#bb0000;color:black;">
             <h2>12 Skill Points</h2>
             <p>4x Click Damage</p>
          </div>
-         <div class="column" onclick="skill6()" id="sk6" style="background-color:#bb0000;color:black;">
+         <div class="column" onclick="skill6()" id="sk6" style="background-color:#cc0000;color:black;">
             <h2>14 Skill Points</h2>
             <p>10x Auto Clicker</p>
          </div>
-         <div class="column" onclick="skill7()" id="sk7" style="background-color:#cc0000;color:black;">
+         <div class="column" onclick="skill7()" id="sk7" style="background-color:#bb0000;color:black;">
             <h2>15 Skill Points</h2>
             <p>12x Click Damage</p>
          </div>
-         <div class="column" onclick="skill8()" id="sk8" style="background-color:#bb0000;color:black;">
+         <div class="column" onclick="skill8()" id="sk8" style="background-color:#cc0000;color:black;">
             <h2>17 Skill Points</h2>
             <p>Start With 10M</p>
+         </div>
+         <div class="column" onclick="skill10()" id="sk10" style="background-color:#cc0000;color:black;">
+            <h2>20 Skill Points</h2>
+            <p>3 Skill Point/Hour</p>
          </div>
       </div>
       <div class="row3" id="stats">
@@ -267,9 +275,9 @@
             <h2>Toggle Auto Buy</h2>
             <p id="tab">Not Purchased</p>
          </div>
-         <div class="column" onclick="alert('0.8.0 -- Color Sceme change again lmalma\n0.7.6 -- More upgrades again\n0.7.5 -- Added Statistics Tab\n0.7.4 -- Boosts from prestiges effect autoclicker\n0.7.3 -- No more boosts, there gone.\n0.7.2 -- Even more upgrades\n0.7.1 -- More upgrades\n0.7.0 -- You now must buy upgrades in order, fixed autostart money\n0.6.5 -- More upgrades\n0.6.4 -- New darker blue color sceme\n0.6.3 -- Added update log\n0.6.2 -- Boost bar takes longer to get harder')" style="background-color:#00bb00;color:black;">
+         <div class="column" onclick="alert('0.9.0 -- Upgrades\n0.8.0 -- Color Sceme change again lmalma\n0.7.6 -- More upgrades again\n0.7.5 -- Added Statistics Tab\n0.7.4 -- Boosts from prestiges effect autoclicker\n0.7.3 -- No more boosts, there gone.\n0.7.2 -- Even more upgrades\n0.7.1 -- More upgrades\n0.7.0 -- You now must buy upgrades in order, fixed autostart money\n0.6.5 -- More upgrades\n0.6.4 -- New darker blue color sceme\n0.6.3 -- Added update log\n0.6.2 -- Boost bar takes longer to get harder')" style="background-color:#00bb00;color:black;">
             <h2>Version</h2>
-            <p>0.8.0</p>
+            <p>0.9.0</p>
          </div>
          <div class="column" style="background-color:#00cc00;color:black;">
             <h2>Clicks With Out Buttons</h2>
@@ -290,6 +298,10 @@
          <div class="column" onclick="alert(localStorage.getItem(`info`))" style="background-color:#00cc00;color:black;">
             <h2>Full Debug</h2>
             <p id="autoclickdam">View all save data</p>
+         </div>
+         <div class="column" onclick="reset()" style="background-color:#00bb00;color:black;">
+            <h2>Reset</h2>
+            <p>reset le' game</p>
          </div>
       </div>
       </div>
