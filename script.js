@@ -272,21 +272,20 @@ function skill4() {
 }
 
 function skill5() {
-	if (data.prespoints >= 12 && data.skills[3]) {
+	if (data.prespoints >= 11 && data.skills[3]) {
 		document.getElementById("sk5").remove()
-		data.prespoints = data.prespoints - 12;
-		data.clickbonus = 4;
+		data.prespoints = data.prespoints - 11;
+		data.sps = 1;
 		data.skills.push("5")
 		data.points = data.points + (5 / (data.boost));
-
 	}
 }
 
 function skill6() {
-	if (data.prespoints >= 14 && data.skills[4]) {
+	if (data.prespoints >= 12 && data.skills[4]) {
 		document.getElementById("sk6").remove()
-		data.prespoints = data.prespoints - 14;
-		data.autoclickbonus = 10;
+		data.prespoints = data.prespoints - 12;
+		data.clickbonus = 4;
 		data.skills.push("6")
 		data.points = data.points + (5 / (data.boost));
 
@@ -294,10 +293,10 @@ function skill6() {
 }
 
 function skill7() {
-	if (data.prespoints >= 15 && data.skills[5]) {
+	if (data.prespoints >= 14 && data.skills[5]) {
 		document.getElementById("sk7").remove()
-		data.prespoints = data.prespoints - 15;
-		data.clickbonus = 12;
+		data.prespoints = data.prespoints - 14;
+		data.autoclickbonus = 10;
 		data.skills.push("7")
 		data.points = data.points + (5 / (data.boost));
 
@@ -308,7 +307,7 @@ function skill8() {
 	if (data.prespoints >= 15 && data.skills[6]) {
 		document.getElementById("sk8").remove()
 		data.prespoints = data.prespoints - 15;
-		data.startmoney = 10000000;
+		data.clickbonus = 12;
 		data.skills.push("8")
 		data.points = data.points + (5 / (data.boost));
 
@@ -316,12 +315,13 @@ function skill8() {
 }
 
 function skill9() {
-	if (data.prespoints >= 11 && data.skills[7]) {
+	if (data.prespoints >= 15 && data.skills[7]) {
 		document.getElementById("sk9").remove()
-		data.prespoints = data.prespoints - 11;
-		data.sps = 1;
+		data.prespoints = data.prespoints - 15;
+		data.startmoney = 10000000;
 		data.skills.push("9")
 		data.points = data.points + (5 / (data.boost));
+
 	}
 }
 
@@ -335,6 +335,25 @@ function skill10() {
 	}
 }
 
+function skill11() {
+	if (data.prespoints >= 23 && data.skills[9]) {
+		document.getElementById("sk11").remove()
+		data.prespoints = data.prespoints - 23;
+		data.clickbonus = 20;
+		data.skills.push("11")
+		data.points = data.points + (5 / (data.boost));
+	}
+}
+
+function skill12() {
+	if (data.prespoints >= 23 && data.skills[10]) {
+		document.getElementById("sk12").remove()
+		data.prespoints = data.prespoints - 26;
+		data.autoclickbonus = 20;
+		data.skills.push("12")
+		data.points = data.points + (5 / (data.boost));
+	}
+}
 function upgrade1() {
 	if (data.money >= 25) {
 		document.getElementById("up1").remove()
