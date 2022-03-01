@@ -1,3 +1,5 @@
+alert("The game has moved to a new website.\nhttps://shawn-does.github.io/idle-clicker-game/")
+
 var data
 var showpres = false;
 var clickswithoutbutton = 0;
@@ -5,15 +7,16 @@ var autobuyon = false;
 
 document.addEventListener('keyup', event => {
 	doclick()
-  data.clickswithoutbutton = data.clickswithoutbutton - 1
+	data.clickswithoutbutton = data.clickswithoutbutton - 1
 })
 
 function load() {
 	document.getElementById("presmenu").style.display = "none";
+	document.getElementById("acheivments").style.display = "none";
 	if (isNaN(localStorage.getItem("info"))) {
 		data = JSON.parse(localStorage.getItem("info"));
 	} else {
-    reset()
+		reset()
 		alert("Welcome new player")
 	}
 	if (!data) data = {}
@@ -23,29 +26,70 @@ function load() {
 	if (!data.prespoints) data.prespoints = 0;
 	if (!data.money) data.money = 0;
 	if (!data.points) data.points = 0;
-	if (!data.bonus) data.bonus = 1;
-	if (!data.boost) data.boost = 0;
+	if (!data.boost) data.boost = 1;
 	if (!data.clickdam) data.clickdam = 1;
 	if (!data.upgrade) data.upgrade = [];
 	if (!data.skills) data.skills = [];
+	if (!data.ach) data.ach = [];
 	if (!data.clicks) data.clicks = 0;
 	if (!data.clickswithoutbutton) data.clickswithoutbutton = 0;
 	if (!data.autobuy) data.autobuy = false;
 	if (!data.startmoney) data.startmoney = 0;
 	if (!data.sps) data.sps = 0;
 	if (!data.autobuyon) data.autobuyon = false;
-		document.getElementById("stats").style.display = "none";
+	document.getElementById("stats").style.display = "none";
 
-  document.getElementById("tab").innerHTML = data.autobuyon
-  document.getElementById("presbonus").innerHTML = data.boost.toFixed(1) + "x";
+	document.getElementById("tab").innerHTML = data.autobuyon
+	document.getElementById("presbonus").innerHTML = data.boost.toFixed(1) + "x";
+  
 	setInterval(function() {
-        document.getElementById("tab").innerHTML = data.autobuyon
-    	document.getElementById("idfk").innerHTML = data.clickswithoutbutton.toFixed(0);
-    	document.getElementById("clickdam").innerHTML = abbrNum(((data.clickdam * data.boost) * data.clickbonus).toFixed(2), 2);
-    	document.getElementById("autoclickdam").innerHTML = abbrNum(((data.autoclickdam * data.autobonus) * data.boost).toFixed(2), 2) + " / Second";
+
+    if(data.money >= 5000 && !data.ach.includes(1)) {
+      data.ach.push(1)
+      data.prespoints = data.prespoints + 1
+    }
+    if(data.boost > 1 && !data.ach.includes(2)) {
+      data.ach.push(2)
+      data.prespoints = data.prespoints + 1
+    }
+    if(data.money >= 100000 && !data.ach.includes(3)) {
+      data.ach.push(3)
+      data.prespoints = data.prespoints + 1
+    }
+    if(data.prespoints >= 5 && !data.ach.includes(4)) {
+      data.ach.push(4)
+      data.prespoints = data.prespoints + 2
+    }
+    if(data.money >= 50000000 && !data.ach.includes(5)) {
+      data.ach.push(5)
+      data.prespoints = data.prespoints + 2
+    }
+    if(data.clickswithoutbutton > 1000 && !data.ach.includes(6)) {
+      data.ach.push(6)
+      data.prespoints = data.prespoints + 4
+    }
+    if(data.boost >= 10 && !data.ach.includes(7)) {
+      data.ach.push(7)
+      data.prespoints = data.prespoints + 4
+    }
+    if(data.money > 50000000000 && !data.ach.includes(8)) {
+      data.ach.push(8)
+      data.prespoints = data.prespoints + 5
+    }
+    if(data.clicks >= 100000 && !data.ach.includes(9)) {
+      data.ach.push(9)
+      data.prespoints = data.prespoints + 5
+    }
+    
+
+
+		document.getElementById("tab").innerHTML = data.autobuyon
+		document.getElementById("idfk").innerHTML = data.clickswithoutbutton.toFixed(0);
+		document.getElementById("clickdam").innerHTML = abbrNum(((data.clickdam * data.boost) * data.clickbonus).toFixed(2), 2);
+		document.getElementById("autoclickdam").innerHTML = abbrNum(((data.autoclickdam * data.autobonus) * data.boost).toFixed(2), 2) + " / Second";
 		data.money = data.money + ((data.autoclickdam * data.autobonus) * data.boost) / 99;
-    data.prespoints = data.prespoints + (data.sps / 3600000)
-    if (showpres) {
+		data.prespoints = data.prespoints + (data.sps / 3600000)
+		if (showpres) {
 			document.getElementById("money").innerHTML = abbrNumNoMon(data.prespoints.toFixed(), 2) + " Skill Points";
 		} else {
 			document.getElementById("money").innerHTML = abbrNum(data.money.toFixed(2), 2);
@@ -65,6 +109,12 @@ function load() {
 		document.getElementById("clickme").innerHTML = abbrNumNoMon(data.clicks, 2) + " Clicks";
 		localStorage.setItem("info", JSON.stringify(data));
 		data = JSON.parse(localStorage.getItem("info"));
+  data.ach.forEach(grade => {
+		try {
+			document.getElementById("ach" + grade).innerHTML = "CLAIMED"
+		} catch {}
+	})
+    
 	}, 10);
 
 	data.upgrade.forEach(grade => {
@@ -77,7 +127,8 @@ function load() {
 			document.getElementById("sk" + grade).remove()
 		} catch {}
 	})
-  if(data.money < 10) data.money = data.startmoney
+
+	if (data.money < 10) data.money = data.startmoney
 }
 
 if (!isNaN(localStorage.getItem("info").money)) {
@@ -85,10 +136,27 @@ if (!isNaN(localStorage.getItem("info").money)) {
 }
 
 function toggleab() {
-  if(data.autobuy) {
-    data.autobuyon = !data.autobuyon;
-    document.getElementById("tab").innerHTML = data.autobuyon
-  }
+	if (data.autobuy) {
+		data.autobuyon = !data.autobuyon;
+		document.getElementById("tab").innerHTML = data.autobuyon
+	}
+}
+
+function acheivments() {
+	if (document.getElementById("acheivments").style.display === "none") {
+		document.getElementById("shop").style.display = "none";
+		document.getElementById("presmenu").style.display = "none";
+		document.getElementById("stats").style.display = "none";
+		document.getElementById("acheivments").style.display = "block";
+		showpres = false;
+	} else {
+		document.getElementById("shop").style.display = "block";
+		document.getElementById("presmenu").style.display = "none";
+		document.getElementById("stats").style.display = "none";
+		document.getElementById("acheivments").style.display = "none";
+
+		showpres = false;
+	}
 }
 
 function showstats() {
@@ -96,11 +164,14 @@ function showstats() {
 		document.getElementById("shop").style.display = "none";
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "block";
+		document.getElementById("acheivments").style.display = "none";
 		showpres = false;
 	} else {
 		document.getElementById("shop").style.display = "block";
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
+		document.getElementById("acheivments").style.display = "none";
+
 		showpres = false;
 	}
 }
@@ -110,11 +181,13 @@ function presmenu() {
 		document.getElementById("shop").style.display = "none";
 		document.getElementById("presmenu").style.display = "block";
 		document.getElementById("stats").style.display = "none";
+		document.getElementById("acheivments").style.display = "none";
 		showpres = true;
 	} else {
 		document.getElementById("shop").style.display = "block";
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
+		document.getElementById("acheivments").style.display = "none";
 		showpres = false;
 	}
 }
@@ -129,14 +202,14 @@ function pristige() {
 			"clickbonus": data.clickbonus,
 			"skills": data.skills,
 			"clicks": data.clicks,
-      "startmoney": data.startmoney,
-      "autobuy": data.autobuy,
-      "autobuyon": data.autobuyon,
-      "clickswithoutbutton": data.clickswithoutbutton,
-      "sps": data.sps
+			"startmoney": data.startmoney,
+			"autobuy": data.autobuy,
+			"autobuyon": data.autobuyon,
+			"clickswithoutbutton": data.clickswithoutbutton,
+			"sps": data.sps
 		}));
 		location.reload();
-  }
+	}
 }
 
 function reset() {
@@ -148,11 +221,11 @@ function doclick() {
 	data.money = data.money + ((data.clickdam * data.boost) * data.clickbonus);
 	data.points = data.points + (0.025 / (data.boost / 2));
 	data.clicks++
-  data.clickswithoutbutton++
-		document.getElementById("shop").style.display = "block";
-		document.getElementById("presmenu").style.display = "none";
-		document.getElementById("stats").style.display = "none";
-		showpres = false;
+	data.clickswithoutbutton++
+	document.getElementById("shop").style.display = "block";
+	document.getElementById("presmenu").style.display = "none";
+	document.getElementById("stats").style.display = "none";
+	showpres = false;
 }
 
 function skill1() {
@@ -264,7 +337,7 @@ function skill10() {
 }
 
 function upgrade1() {
-	if (data.money >= 25 ) {
+	if (data.money >= 25) {
 		document.getElementById("up1").remove()
 		data.money = data.money - 25;
 		data.clickdam = 2;
@@ -450,7 +523,7 @@ function upgrade17() {
 
 function upgrade18() {
 	if (data.money >= 7000000 && data.upgrade[16]) {
-    //Line 420
+		//Line 420
 		document.getElementById("up18").remove()
 		data.money = data.money - 7000000;
 		data.clickdam = 2500;
@@ -690,6 +763,7 @@ function upgrade39() {
 
 	}
 }
+
 function upgrade40() {
 	if (data.money >= 150000000000 && data.upgrade[38]) {
 		document.getElementById("up40").remove()
@@ -785,10 +859,10 @@ function abbrNum(number, decPlaces) {
 }
 
 function toTitleCase(str) {
-  return str.replace(
-    /\w\S*/g,
-    function(txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    }
-  );
+	return str.replace(
+		/\w\S*/g,
+		function(txt) {
+			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+		}
+	);
 }
