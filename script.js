@@ -204,7 +204,8 @@ function pristige() {
 			"autobuy": data.autobuy,
 			"autobuyon": data.autobuyon,
 			"clickswithoutbutton": data.clickswithoutbutton,
-			"sps": data.sps
+			"sps": data.sps,
+			"ach": data.ach
 		}));
 		location.reload();
 	}
