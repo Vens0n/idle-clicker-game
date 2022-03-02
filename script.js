@@ -224,6 +224,7 @@ function doclick() {
 	document.getElementById("shop").style.display = "block";
 	document.getElementById("presmenu").style.display = "none";
 	document.getElementById("stats").style.display = "none";
+	document.getElementById("acheivments").style.display = "none";
 	showpres = false;
 }
 
