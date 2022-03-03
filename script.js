@@ -116,9 +116,11 @@ function load() {
 		document.getElementById("idfk").innerHTML = data.clickswithoutbutton.toFixed(0);
 		document.getElementById("clickdam").innerHTML = abbrNum(((data.clickdam * data.boost) * data.clickbonus).toFixed(2), 2);
 		document.getElementById("autoclickdam").innerHTML = abbrNum(((data.autoclickdam * data.autobonus) * data.boost).toFixed(2), 2) + " / Second";
-		data.money = data.money + ((data.autoclickdam * data.autobonus) * data.boost) / 99;
+    document.getElementById("showtime").innerHTML = new Date(data.timeplayed * 1000).toISOString().substr(11, 8);
+    data.money = data.money + ((data.autoclickdam * data.autobonus) * data.boost) / 99;
 		data.prespoints = data.prespoints + (data.sps / 3600000)
-		if (showpres) {
+		if (showpres) { 
+
 			document.getElementById("money").innerHTML = abbrNumNoMon(data.prespoints.toFixed(), 2) + " Skill Points";
 		} else {
 			document.getElementById("money").innerHTML = abbrNum(data.money.toFixed(2), 2);
