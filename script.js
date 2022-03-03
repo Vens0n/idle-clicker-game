@@ -1,5 +1,3 @@
-alert("The game has moved to a new website.\nhttps://shawn-does.github.io/idle-clicker-game/")
-
 var data
 var showpres = false;
 var clickswithoutbutton = 0;
@@ -11,6 +9,7 @@ document.addEventListener('keyup', event => {
 })
 
 function load() {
+  window.scrollTo(0, 0);
   document.body.style.overflow = "hidden";
 	document.getElementById("presmenu").style.display = "none";
 	document.getElementById("acheivments").style.display = "none";
@@ -79,7 +78,23 @@ function load() {
     }
     if(data.clicks >= 100000 && !data.ach.includes(9)) {
       data.ach.push(9)
-      data.prespoints = data.prespoints + 5
+      data.prespoints = data.prespoints + 6
+    }
+    if(data.prespoints >= 30 && !data.ach.includes(10)) {
+      data.ach.push(10)
+      data.prespoints = data.prespoints + 6
+    }
+    if(data.money >= 500000000000 && !data.ach.includes(11)) {
+      data.ach.push(11)
+      data.prespoints = data.prespoints + 6
+    }
+    if(((data.clickdam * data.boost) * data.clickbonus).toFixed(2) >= 500000 && !data.ach.includes(12)) {
+      data.ach.push(12)
+      data.prespoints = data.prespoints + 6
+    }
+    if(((data.clickdam * data.bonus) * data.boost) / 99 >= 50000 && !data.ach.includes(13)) {
+      data.ach.push(13)
+      data.prespoints = data.prespoints + 6
     }
     
 
