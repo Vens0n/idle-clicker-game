@@ -11,6 +11,7 @@
          <button onclick="presmenu()">Prestige Menu</button>
          <button onclick="showstats()">Statistics</button>
          <button onclick="acheivments()">Acheivments</button>
+         <button onclick="skillmenu()">Skills Menu</button>
          <div id="progressbar">
             <div id="points" onclick="pristige()"></div>
          </div>
@@ -283,7 +284,7 @@
             <h2>Toggle Auto Buy</h2>
             <p id="tab">Not Purchased</p>
          </div>
-         <div class="column" onclick="alert('0.9.2 -- New things, idfk\n0.9.1 -- Inside work upgrades and acheivments\n0.9.0 -- Upgrades\n0.8.0 -- Color Sceme change again lmalma\n0.7.6 -- More upgrades again\n0.7.5 -- Added Statistics Tab\n0.7.4 -- Boosts from prestiges effect autoclicker\n0.7.3 -- No more boosts, there gone.\n0.7.2 -- Even more upgrades\n0.7.1 -- More upgrades\n0.7.0 -- You now must buy upgrades in order, fixed autostart money\n0.6.5 -- More upgrades\n0.6.4 -- New darker blue color sceme\n0.6.3 -- Added update log\n0.6.2 -- Boost bar takes longer to get harder')" style="background-color:#00bb00;color:black;">
+         <div class="column" onclick="alert('0.9.2 -- Alot of smaller little things, alot. Oh also skills menu\n0.9.1 -- Inside work upgrades and acheivments\n0.9.0 -- Upgrades\n0.8.0 -- Color Sceme change again lmalma\n0.7.6 -- More upgrades again\n0.7.5 -- Added Statistics Tab\n0.7.4 -- Boosts from prestiges effect autoclicker\n0.7.3 -- No more boosts, there gone.\n0.7.2 -- Even more upgrades\n0.7.1 -- More upgrades\n0.7.0 -- You now must buy upgrades in order, fixed autostart money\n0.6.5 -- More upgrades\n0.6.4 -- New darker blue color sceme\n0.6.3 -- Added update log\n0.6.2 -- Boost bar takes longer to get harder')" style="background-color:#00bb00;color:black;">
             <h2>Version</h2>
             <p>0.9.2</p>
          </div>
@@ -310,6 +311,10 @@
          <div class="column" onclick="reset()" style="background-color:#00bb00;color:black;">
             <h2>Reset</h2>
             <p>reset le' game</p>
+         </div>
+         <div class="column" onclick="reset()" style="background-color:#00aa00;color:black;">
+            <h2>Time Played</h2>
+            <p id="showtime">woops</p>
          </div>
       </div>
       <div class="row4" id="acheivments">
@@ -362,8 +367,34 @@
             <p id="ach12">6 SP</p>
          </div>
          <div class="column" style="background-color:#999;color:black;">
-            <h2>Reach A 50K Auto Click Damae</h2>
+            <h2>Reach A 50K Auto Click Damage</h2>
             <p id="ach13">6 SP</p>
+         </div>
+         <div class="column" style="background-color:#888;color:black;">
+            <h2>5 Days Of Playtime</h2>
+            <p id="ach10">7 SP</p>
+         </div>
+         <div class="column" style="background-color:#777;color:black;">
+            <h2>25K Without buttons :)</h2>
+            <p id="ach11">8 SP</p>
+         </div>
+         <div class="column" style="background-color:#888;color:black;">
+            <h2>2 Weeks Of Playtime</h2>
+            <p id="ach12">25 SP</p>
+         </div>
+      </div>
+      <div class="row4" id="skills">
+         <div class="column" onclick="ski1()" style="background-color:#444;color:white;">
+            <h2>2 SP</h2>
+            <p id="ach1">Simulate 500 Clicks</p>
+         </div>
+         <div class="column" onclick="ski2()" style="background-color:#333;color:white;">
+            <h2>5</h2>
+            <p id="ach2">Simulate 1,400 Clicks</p>
+         </div>
+         <div class="column" onclick="ski3()" style="background-color:#222;color:white;">
+            <h2>10</h2>
+            <p id="ach3">Simulate 3,000 Clicks</p>
          </div>
       </div>
 
