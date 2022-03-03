@@ -25,6 +25,7 @@ function load() {
 	if (!data.clickbonus) data.clickbonus = 1;
 	if (!data.prespoints) data.prespoints = 0;
 	if (!data.money) data.money = 0;
+	if (!data.timeplayed) data.timeplayed = 0;
 	if (!data.points) data.points = 0;
 	if (!data.boost) data.boost = 1;
 	if (!data.clickdam) data.clickdam = 1;
@@ -76,7 +77,7 @@ function load() {
       data.ach.push(8)
       data.prespoints = data.prespoints + 5
     }
-    if(data.clicks >= 100000 && !data.ach.includes(9)) {
+    if(data.clickswithoutbutton >= 10000 && !data.ach.includes(9)) {
       data.ach.push(9)
       data.prespoints = data.prespoints + 6
     }
@@ -95,6 +96,18 @@ function load() {
     if(((data.clickdam * data.bonus) * data.boost) / 99 >= 50000 && !data.ach.includes(13)) {
       data.ach.push(13)
       data.prespoints = data.prespoints + 6
+    }
+    if(data.playtime >= 432000 && !data.ach.includes(14)) {
+      data.ach.push(14)
+      data.prespoints = data.prespoints + 7
+    }
+    if(data.clickswithoutbuttons >= 25000 && !data.ach.includes(15)) {
+      data.ach.push(15)
+      data.prespoints = data.prespoints + 8
+    }
+    if(data.playtime >= 1210000 && !data.ach.includes(16)) {
+      data.ach.push(16)
+      data.prespoints = data.prespoints + 25
     }
     
 
@@ -122,6 +135,7 @@ function load() {
 				eval("upgrade" + (data.upgrade.length + 1) + "();")
 			} catch {}
 		}
+    data.timeplayed = data.timeplayed + 0.01;
 		document.getElementById("clickme").innerHTML = abbrNumNoMon(data.clicks, 2) + " Clicks";
 		localStorage.setItem("info", JSON.stringify(data));
 		data = JSON.parse(localStorage.getItem("info"));
@@ -164,6 +178,7 @@ function acheivments() {
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "block";
+		document.getElementById("skills").style.display = "none";
     document.body.style.overflow = "scroll";
 		showpres = false;
 	} else {
@@ -171,6 +186,7 @@ function acheivments() {
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
+		document.getElementById("skills").style.display = "none";
     document.body.style.overflow = "hidden";
 		showpres = false;
 	}
@@ -182,6 +198,7 @@ function showstats() {
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "block";
 		document.getElementById("acheivments").style.display = "none";
+		document.getElementById("skills").style.display = "none";
     document.body.style.overflow = "scroll";
 		showpres = false;
 	} else {
@@ -189,6 +206,7 @@ function showstats() {
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
+		document.getElementById("skills").style.display = "none";
     document.body.style.overflow = "hidden";
 		showpres = false;
 	}
@@ -200,6 +218,7 @@ function presmenu() {
 		document.getElementById("presmenu").style.display = "block";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
+		document.getElementById("skills").style.display = "none";
     document.body.style.overflow = "scroll";
 		showpres = true;
 	} else {
@@ -207,6 +226,27 @@ function presmenu() {
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
+		document.getElementById("skills").style.display = "none";
+    document.body.style.overflow = "hidden";
+		showpres = false;
+	}
+}
+
+function skillmenu() {
+	if (document.getElementById("skills").style.display === "none") {
+		document.getElementById("shop").style.display = "none";
+		document.getElementById("presmenu").style.display = "none";
+		document.getElementById("stats").style.display = "none";
+		document.getElementById("acheivments").style.display = "none";
+		document.getElementById("skills").style.display = "block";
+    document.body.style.overflow = "scroll";
+		showpres = true;
+	} else {
+		document.getElementById("shop").style.display = "block";
+		document.getElementById("presmenu").style.display = "none";
+		document.getElementById("stats").style.display = "none";
+		document.getElementById("acheivments").style.display = "none";
+		document.getElementById("skills").style.display = "none";
     document.body.style.overflow = "hidden";
 		showpres = false;
 	}
@@ -250,6 +290,30 @@ function doclick() {
   document.body.style.overflow = "hidden";
 	showpres = false;
   window.scrollTo(0, 0);
+}
+
+function ski1() {
+	if (data.prespoints >= 2) {
+		data.prespoints = data.prespoints - 2
+    for(let i = 0;i < 500; i++) doclick(); data.clickswithoutbutton = data.clickswithoutbutton -1
+    skillmenu()
+	}
+}
+
+function ski2() {
+	if (data.prespoints >= 5) {
+		data.prespoints = data.prespoints - 5
+    for(let i = 0;i < 1400; i++) doclick(); data.clickswithoutbutton = data.clickswithoutbutton -1
+    skillmenu()
+	}
+}
+
+function ski3() {
+	if (data.prespoints >= 10) {
+		data.prespoints = data.prespoints - 10
+    for(let i = 0;i < 3000; i++) doclick(); data.clickswithoutbutton = data.clickswithoutbutton -1
+    skillmenu()
+	}
 }
 
 function skill1() {
