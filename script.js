@@ -1,3 +1,5 @@
+alert("The game has moved to a new website.\nhttps://shawn-does.github.io/idle-clicker-game/")
+
 var data
 var showpres = false;
 var clickswithoutbutton = 0;
@@ -9,6 +11,7 @@ document.addEventListener('keyup', event => {
 })
 
 function load() {
+  document.body.style.overflow = "hidden";
 	document.getElementById("presmenu").style.display = "none";
 	document.getElementById("acheivments").style.display = "none";
 	if (isNaN(localStorage.getItem("info"))) {
@@ -146,13 +149,14 @@ function acheivments() {
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "block";
+    document.body.style.overflow = "scroll";
 		showpres = false;
 	} else {
 		document.getElementById("shop").style.display = "block";
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
-
+    document.body.style.overflow = "hidden";
 		showpres = false;
 	}
 }
@@ -163,13 +167,14 @@ function showstats() {
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "block";
 		document.getElementById("acheivments").style.display = "none";
+    document.body.style.overflow = "scroll";
 		showpres = false;
 	} else {
 		document.getElementById("shop").style.display = "block";
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
-
+    document.body.style.overflow = "hidden";
 		showpres = false;
 	}
 }
@@ -180,12 +185,14 @@ function presmenu() {
 		document.getElementById("presmenu").style.display = "block";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
+    document.body.style.overflow = "scroll";
 		showpres = true;
 	} else {
 		document.getElementById("shop").style.display = "block";
 		document.getElementById("presmenu").style.display = "none";
 		document.getElementById("stats").style.display = "none";
 		document.getElementById("acheivments").style.display = "none";
+    document.body.style.overflow = "hidden";
 		showpres = false;
 	}
 }
@@ -225,7 +232,9 @@ function doclick() {
 	document.getElementById("presmenu").style.display = "none";
 	document.getElementById("stats").style.display = "none";
 	document.getElementById("acheivments").style.display = "none";
+  document.body.style.overflow = "hidden";
 	showpres = false;
+  window.scrollTo(0, 0);
 }
 
 function skill1() {
@@ -276,7 +285,7 @@ function skill5() {
 	if (data.prespoints >= 11 && data.skills[3]) {
 		document.getElementById("sk5").remove()
 		data.prespoints = data.prespoints - 11;
-		data.sps = 1;
+		data.sps = 10;
 		data.skills.push("5")
 		data.points = data.points + (5 / (data.boost));
 	}
@@ -330,7 +339,7 @@ function skill10() {
 	if (data.prespoints >= 20 && data.skills[8]) {
 		document.getElementById("sk10").remove()
 		data.prespoints = data.prespoints - 20;
-		data.sps = 3;
+		data.sps = 30;
 		data.skills.push("10")
 		data.points = data.points + (5 / (data.boost));
 	}
