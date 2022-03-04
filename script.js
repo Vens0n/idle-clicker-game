@@ -25,7 +25,7 @@ function load() {
 	if (!data.clickbonus) data.clickbonus = 1;
 	if (!data.prespoints) data.prespoints = 0;
 	if (!data.money) data.money = 0;
-	if (!data.timeplayed) data.timeplayed = 0;
+	if (!data.gamestart) data.gamestart = Date.now()
 	if (!data.points) data.points = 0;
 	if (!data.boost) data.boost = 1;
 	if (!data.clickdam) data.clickdam = 1;
@@ -45,6 +45,15 @@ function load() {
   
 	setInterval(function() {
 
+    var datetext = []
+
+    var distance = Date.now() - data.gamestart;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    
     if(data.money >= 5000 && !data.ach.includes(1)) {
       data.ach.push(1)
       data.prespoints = data.prespoints + 1
@@ -97,7 +106,7 @@ function load() {
       data.ach.push(13)
       data.prespoints = data.prespoints + 6
     }
-    if(data.playtime >= 432000 && !data.ach.includes(14)) {
+    if(days >= 5 && !data.ach.includes(14)) {
       data.ach.push(14)
       data.prespoints = data.prespoints + 7
     }
@@ -105,18 +114,24 @@ function load() {
       data.ach.push(15)
       data.prespoints = data.prespoints + 8
     }
-    if(data.playtime >= 1210000 && !data.ach.includes(16)) {
+    if(days >= 14 && !data.ach.includes(16)) {
       data.ach.push(16)
       data.prespoints = data.prespoints + 25
     }
     
 
 
+    if(days >= 1) datetext.push(days + " Days")
+    if(hours >= 1) datetext.push(hours + " Hours")
+    if(minutes >= 1 && days <= 1) datetext.push(minutes + " Minutes")
+    if(seconds >= 1 && hours <= 1) datetext.push(seconds + " Seconds")
+    document.getElementById("showtime").innerHTML = datetext.join(", ");
+
 		document.getElementById("tab").innerHTML = data.autobuyon
 		document.getElementById("idfk").innerHTML = data.clickswithoutbutton.toFixed(0);
 		document.getElementById("clickdam").innerHTML = abbrNum(((data.clickdam * data.boost) * data.clickbonus).toFixed(2), 2);
 		document.getElementById("autoclickdam").innerHTML = abbrNum(((data.autoclickdam * data.autobonus) * data.boost).toFixed(2), 2) + " / Second";
-    document.getElementById("showtime").innerHTML = new Date(data.timeplayed * 1000).toISOString().substr(11, 8);
+
     data.money = data.money + ((data.autoclickdam * data.autobonus) * data.boost) / 99;
 		data.prespoints = data.prespoints + (data.sps / 3600000)
 		if (showpres) { 
@@ -442,6 +457,47 @@ function skill12() {
 		data.prespoints = data.prespoints - 26;
 		data.autoclickbonus = 20;
 		data.skills.push("12")
+		data.points = data.points + (5 / (data.boost));
+	}
+}
+
+function skill13() {
+	if (data.prespoints >= 27 && data.skills[11]) {
+		document.getElementById("sk13").remove()
+		data.prespoints = data.prespoints - 27;
+		data.startmoney = 1000000000;
+		data.skills.push("13")
+		data.points = data.points + (5 / (data.boost));
+
+	}
+}
+
+function skill14() {
+	if (data.prespoints >= 30 && data.skills[12]) {
+		document.getElementById("sk14").remove()
+		data.prespoints = data.prespoints - 30;
+		data.clickbonus = 50;
+		data.skills.push("14")
+		data.points = data.points + (5 / (data.boost));
+	}
+}
+
+function skill15() {
+	if (data.prespoints >= 31 && data.skills[13]) {
+		document.getElementById("sk15").remove()
+		data.prespoints = data.prespoints - 31;
+		data.autoclickbonus = 50;
+		data.skills.push("15")
+		data.points = data.points + (5 / (data.boost));
+	}
+}
+
+function skill16() {
+	if (data.prespoints >= 40 && data.skills[14]) {
+		document.getElementById("sk16").remove()
+		data.prespoints = data.prespoints - 40;
+		data.sps = 100;
+		data.skills.push("16")
 		data.points = data.points + (5 / (data.boost));
 	}
 }
