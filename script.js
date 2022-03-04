@@ -27,6 +27,7 @@ function load() {
 	if (!data.money) data.money = 0;
 	if (!data.gamestart) data.gamestart = Date.now()
 	if (!data.points) data.points = 0;
+	if (!data.costtobuysp) data.costtobuysp = 10000;
 	if (!data.boost) data.boost = 1;
 	if (!data.clickdam) data.clickdam = 1;
 	if (!data.upgrade) data.upgrade = [];
@@ -131,7 +132,8 @@ function load() {
 		document.getElementById("idfk").innerHTML = data.clickswithoutbutton.toFixed(0);
 		document.getElementById("clickdam").innerHTML = abbrNum(((data.clickdam * data.boost) * data.clickbonus).toFixed(2), 2);
 		document.getElementById("autoclickdam").innerHTML = abbrNum(((data.autoclickdam * data.autobonus) * data.boost).toFixed(2), 2) + " / Second";
-
+    document.getElementById("skl4").innerHTML = abbrNum(data.costtobuysp.toFixed(2), 2);
+    
     data.money = data.money + ((data.autoclickdam * data.autobonus) * data.boost) / 99;
 		data.prespoints = data.prespoints + (data.sps / 3600000)
 		if (showpres) { 
@@ -284,7 +286,9 @@ function pristige() {
 			"autobuyon": data.autobuyon,
 			"clickswithoutbutton": data.clickswithoutbutton,
 			"sps": data.sps,
-			"ach": data.ach
+			"ach": data.ach,
+      "gamestart": data.gamestart,
+      "costtobuysp": data.costtobuysp
 		}));
 		location.reload();
 	}
@@ -330,6 +334,14 @@ function ski3() {
 		data.prespoints = data.prespoints - 10
     for(let i = 0;i < 3000; i++) doclick(); data.clickswithoutbutton = data.clickswithoutbutton -1
     skillmenu()
+	}
+}
+
+function ski4() {
+	if (data.money >= data.costtobuysp) {
+		data.money = data.money - data.costtobuysp
+    data.costtobuysp = data.costtobuysp + data.costtobuysp * 1.25
+    data.prespoints++
 	}
 }
 
