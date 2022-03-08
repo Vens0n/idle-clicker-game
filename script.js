@@ -1,3 +1,5 @@
+alert("The game has moved to a new website.\nhttps://shawn-does.github.io/idle-clicker-game/")
+
 var data
 var showpres = false;
 var clickswithoutbutton = 0;
@@ -301,7 +303,7 @@ function reset() {
 
 function doclick() {
 	data.money = data.money + ((data.clickdam * data.boost) * data.clickbonus);
-	data.points = data.points + (0.025 / (data.boost / 2));
+	data.points = data.points + (0.035 / (data.boost / 4));
 	data.clicks++
 	data.clickswithoutbutton++
 	document.getElementById("shop").style.display = "block";
