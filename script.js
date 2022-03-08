@@ -1,5 +1,3 @@
-alert("The game has moved to a new website.\nhttps://shawn-does.github.io/idle-clicker-game/")
-
 var data
 var showpres = false;
 var clickswithoutbutton = 0;
